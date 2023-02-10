@@ -26,7 +26,7 @@ migrate = Migrate(app, db)
 @app.route('/')
 def index():
     return 'Hello, World!'
-opi
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
