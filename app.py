@@ -17,7 +17,7 @@ if uri:
     if uri.startswith("postgres://"):
         uri = uri.replace("postgres://", "postgresql://", 1)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:19862814@localhost:8000/wb_main'
+app.config['SQLALCHEMY_DATABASE_URI'] = uri or 'postgresql://postgres:19862814@localhost:8000/wb_main'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
