@@ -28,6 +28,18 @@ def index():
     return 'Hello, World!'
 
 
+@app.route('/add_user')
+def add_user():
+    new_user = User(username='new_user',
+                    email='new_user@example.com',
+                    email2='new_user@example.com',
+                    email3='new_user@example.com')
+    db.session.add(new_user)
+    db.session.commit()
+
+    return 'User added!'
+
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
